@@ -4,25 +4,60 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemComponent.h"
+#include "GameplayAbilitySpec.h" // for FGameplayAbilitySpecHandle
+#include "EnhancedInputComponent.h" // for FInputBindingHandle
 #include "AbilitySystemComponentBase.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class UInputAction;
+
+USTRUCT(BlueprintType, Blueprintable)
+struct FAbilityInputBinding
+{
+	GENERATED_BODY()
+
+	int32  InputID = 0;
+	uint32 OnPressedHandle = 0;
+	uint32 OnReleasedHandle = 0;
+	TArray<FGameplayAbilitySpecHandle> BoundAbilitiesStack;
+};
+
+UCLASS(Blueprintable, BlueprintType, hidecategories=(Object,LOD,Lighting,Transform,Sockets,TextureStreaming))
 class GAMEBASE_API UAbilitySystemComponentBase : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
-	UAbilitySystemComponentBase();
+public:
+	UFUNCTION(BlueprintCallable, Category = "Enhanced Input Abilities")
+	void SetInputBinding(UInputAction* InputAction, FGameplayAbilitySpecHandle AbilityHandle);
 
-protected:
-	// Called when the game starts
+	UFUNCTION(BlueprintCallable, Category = "Enhanced Input Abilities")
+	void ClearInputBinding(FGameplayAbilitySpecHandle AbilityHandle);
+
+	UFUNCTION(BlueprintCallable, Category = "Enhanced Input Abilities")
+	void ClearAbilityBindings(UInputAction* InputAction);
+
+	UFUNCTION(BlueprintCallable)
+	void SetInputComponent(UEnhancedInputComponent* InputComponent);
+	
+private:
+	void OnAbilityInputPressed(UInputAction* InputAction);
+
+	void OnAbilityInputReleased(UInputAction* InputAction);
+
+	void RemoveEntry(UInputAction* InputAction);
+
+	void TryBindAbilityInput(UInputAction* InputAction, FAbilityInputBinding& AbilityInputBinding);
+
+	FGameplayAbilitySpec* FindAbilitySpec(FGameplayAbilitySpecHandle Handle);
+
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	UPROPERTY(transient)
+	TMap<UInputAction*, FAbilityInputBinding> MappedAbilities;
+
+	UPROPERTY(transient)
+	UEnhancedInputComponent* EnhancedInputComponent;
 
 		
 };

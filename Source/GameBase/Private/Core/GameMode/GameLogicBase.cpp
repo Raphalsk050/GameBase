@@ -3,3 +3,6 @@
 
 #include "Core/GameMode/GameLogicBase.h"
 
+void AGameLogicBase::RestartGame()
+{
+}

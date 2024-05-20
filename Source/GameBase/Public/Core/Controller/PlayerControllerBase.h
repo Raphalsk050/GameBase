@@ -16,6 +16,8 @@ class GAMEBASE_API APlayerControllerBase : public APlayerController
 	GENERATED_BODY()
 
 public:
+	APlayerControllerBase();
 
+	virtual void BeginPlay() override;
 private:
 };

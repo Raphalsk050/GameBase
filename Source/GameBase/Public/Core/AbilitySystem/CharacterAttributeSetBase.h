@@ -25,14 +25,27 @@ class GAMEBASE_API UCharacterAttributeSetBase : public UAttributeSet
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(BlueprintReadOnly, Category = "CharacterLevel")
+	FGameplayAttributeData CharacterLevel;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, CharacterLevel)
+	
 	UPROPERTY(BlueprintReadOnly, Category = "Health")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, Health)
+
+	UPROPERTY(BlueprintReadOnly, Category = "MaxHealth")
+	FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, MaxHealth)
 
 	UPROPERTY(BlueprintReadOnly, Category = "Movement")
 	FGameplayAttributeData MaxWalkSpeed;
 	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, MaxWalkSpeed)
 
-private:
+	UPROPERTY(BlueprintReadOnly, Category = "Movement")
+	FGameplayAttributeData Stamina;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, Stamina)
 
+	UPROPERTY(BlueprintReadOnly, Category = "Movement")
+	FGameplayAttributeData MaxStamina;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, MaxStamina)
 };

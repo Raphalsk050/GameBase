@@ -10,3 +10,7 @@ RestartGame::RestartGame()
 RestartGame::~RestartGame()
 {
 }
+
+void RestartGame::Restart()
+{
+}

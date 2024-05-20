@@ -12,4 +12,7 @@ class GAMEBASE_API RestartGame
 public:
 	RestartGame();
 	~RestartGame();
+
+
+	void Restart();
 };
