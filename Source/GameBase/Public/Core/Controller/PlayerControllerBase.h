@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Core/AbilitySystem/GameplayAbilityBase.h"
+#include "Data/AbilityInfo.h"
 #include "GameBase/Public/Core/Character/CharacterBase.h"
 #include "GameFramework/PlayerController.h"
 #include "PlayerControllerBase.generated.h"
@@ -19,5 +21,10 @@ public:
 	APlayerControllerBase();
 
 	virtual void BeginPlay() override;
-private:
+
+	virtual void OnPossess(APawn* InPawn) override;
+
+protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UAbilityInfo* CharacterDefaultAbilities;
 };

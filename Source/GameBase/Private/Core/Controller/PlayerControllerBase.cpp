@@ -18,3 +18,28 @@ void APlayerControllerBase::BeginPlay()
 		PlayerStateBase->GetAbilitySystemComponent()->SetInputComponent(Cast<UEnhancedInputComponent>(ControlledActor->InputComponent));
 	}
 }
+
+void APlayerControllerBase::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+
+	if(!CharacterDefaultAbilities->IsValidLowLevel()) return;
+
+	FTimerDelegate TimerDelegate;
+	TimerDelegate.BindLambda([this, InPawn]()
+	{
+		auto DefaultAbilityInfos = CharacterDefaultAbilities->Abilities;
+	
+		for(auto DefaultAbility : DefaultAbilityInfos)
+		{
+			auto Ability = DefaultAbility.Key;
+			auto InputBind = DefaultAbility.Value;
+			auto AbilitySpec = FGameplayAbilitySpec(Ability, 1, static_cast<int32>(Ability.GetDefaultObject()->AbilityInputID), this);
+			auto AbilitySystemComponent = Cast<APlayerStateBase>(InPawn->GetPlayerState())->GetAbilitySystemComponent();
+			auto AbilitySpecHandle = AbilitySystemComponent->GiveAbility(AbilitySpec);
+			AbilitySystemComponent->SetInputBinding(InputBind,AbilitySpecHandle);
+		}
+	});
+
+	GetWorld()->GetTimerManager().SetTimerForNextTick(TimerDelegate);
+}
