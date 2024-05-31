@@ -36,8 +36,8 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NATVIS:"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\RenderCore\RenderCore.natvis"
-"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
-"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\Default.rc2.res"
+"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
+"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Projects\UnrealEditor-Projects.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\RenderCore\UnrealEditor-RenderCore.lib"
@@ -66,7 +66,7 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderShaderInfo.dll"
-/IMPLIB:"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\UnrealEditor-RiderShaderInfo.sup.lib"
-/PDB:"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderShaderInfo.pdb"
+/OUT:"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderShaderInfo.dll"
+/IMPLIB:"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderShaderInfo\UnrealEditor-RiderShaderInfo.sup.lib"
+/PDB:"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderShaderInfo.pdb"
 /ignore:4078

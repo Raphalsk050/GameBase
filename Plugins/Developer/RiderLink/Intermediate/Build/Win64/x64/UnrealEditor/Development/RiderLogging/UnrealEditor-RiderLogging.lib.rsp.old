@@ -6,7 +6,7 @@
 /NAME:"UnrealEditor-RiderLogging.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\RiderLogging.cpp.obj"
-"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\RiderOutputDevice.cpp.obj"
-"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\Default.rc2.res"
-/OUT:"G:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\UnrealEditor-RiderLogging.lib"
+"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\RiderLogging.cpp.obj"
+"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\RiderOutputDevice.cpp.obj"
+"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\Default.rc2.res"
+/OUT:"C:\_UNREALPROJECTS\GameBase\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLogging\UnrealEditor-RiderLogging.lib"
