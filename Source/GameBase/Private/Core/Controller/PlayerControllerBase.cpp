@@ -42,4 +42,11 @@ void APlayerControllerBase::OnPossess(APawn* InPawn)
 	});
 
 	GetWorld()->GetTimerManager().SetTimerForNextTick(TimerDelegate);
+
+	//The character camera
+	FollowCamera = GetWorld()->SpawnActor<AFollowCamera>(FVector(0.0f),FRotator(0.0f));
+	FollowCamera->FollowTarget = GetPawn();
+	FollowCamera->CameraInfo = CameraInfo;
+	SetViewTargetWithBlend(FollowCamera);
+	FollowCamera->Initialize();
 }

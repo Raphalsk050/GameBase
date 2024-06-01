@@ -3,14 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Data/CameraInfo.h"
 #include "FollowCamera.generated.h"
 
 UCLASS()
-class GAMEBASE_API AFollowCamera : public AActor
+class GAMEBASE_API AFollowCamera : public APawn
 {
 	GENERATED_BODY()
 	
@@ -34,15 +33,19 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UCameraComponent* Camera;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int MovementDecay = 16;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
-	void Follow(float FollowPassing, float SmoothingTime);
+	UFUNCTION(BlueprintCallable)
+	void Initialize();
 
-	FVector ExpDecay(FVector A, FVector B, int Decay, float DeltaTime);
+private:
+	void Follow(float DeltaTime);
+
+	template<typename T>
+	auto ExpDecay(const T& A,const T& B, int Decay, float DeltaTime) -> decltype(B+(A-B)*FMath::Exp(-Decay*DeltaTime))
+	{
+		return B+(A-B)*FMath::Exp(-Decay*DeltaTime);
+	}
 };

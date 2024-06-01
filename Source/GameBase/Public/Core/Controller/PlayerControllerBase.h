@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FollowCamera.h"
 #include "Core/AbilitySystem/GameplayAbilityBase.h"
 #include "Data/AbilityInfo.h"
+#include "Data/CameraInfo.h"
 #include "GameBase/Public/Core/Character/CharacterBase.h"
 #include "GameFramework/PlayerController.h"
 #include "PlayerControllerBase.generated.h"
@@ -27,4 +29,10 @@ public:
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UAbilityInfo* CharacterDefaultAbilities;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UCameraInfo* CameraInfo;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	AFollowCamera* FollowCamera;
 };
