@@ -1,0 +1,99 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.5",
+	"FriendlyName": "DXCore",
+	"Description": "A set of important and reusable patterns features in DX Gameworks games",
+	"Category": "Gameplay",
+	"CreatedBy": "DXGamework's Engineers",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "DXCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Core",
+				"CoreUObject",
+				"Engine",
+				"Slate",
+				"SlateCore",
+				"InputCore",
+				"ApplicationCore",
+				"UMG",
+				"AIModule",
+				"OnlineSubsystem",
+				"OnlineSubsystemUtils"
+			]
+		},
+		{
+			"Name": "DXCoreEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"AdditionalDependencies": [
+				"Core",
+				"CoreUObject",
+				"Engine",
+				"ApplicationCore",
+				"UnrealEd"
+			]
+		},
+		{
+			"Name": "DXCoreUI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Core",
+				"CoreUObject",
+				"Engine",
+				"UMG",
+				"Slate",
+				"SlateCore",
+				"CommonUI"
+			]
+		},
+		{
+			"Name": "DXGameSettings",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"CommonUI"
+			]
+		},
+		{
+			"Name": "DXTweakingManager",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "OnlineSubsystem",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "SteamShared",
+			"Enabled": true,
+			"PlatformAllowList": [
+				"Win64",
+				"Mac",
+				"Linux"
+			]
+		}
+	]
+}
