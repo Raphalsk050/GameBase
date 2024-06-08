@@ -26,6 +26,8 @@ public:
 
 	virtual void OnPossess(APawn* InPawn) override;
 
+	virtual void OnUnPossess() override;
+
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UAbilityInfo* CharacterDefaultAbilities;

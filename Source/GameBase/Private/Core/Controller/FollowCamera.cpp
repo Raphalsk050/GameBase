@@ -30,11 +30,21 @@ void AFollowCamera::Tick(float DeltaTime)
 
 void AFollowCamera::Initialize()
 {
+	AActor::SetActorTickEnabled(false);
 	SpringArm->TargetArmLength = CameraInfo->TargetArmLength;
 	SpringArm->SocketOffset = CameraInfo->TargetLocationOffset;
 	SpringArm->bDoCollisionTest = CameraInfo->bDoCollisionTest;
+	SpringArm->bEnableCameraLag = CameraInfo->bEnableCameraLag;
+	SpringArm->CameraLagSpeed = CameraInfo->CameraLagSpeed;
+	SpringArm->bDrawDebugLagMarkers = CameraInfo->bDrawDebugLagMarkers;
 	Camera->FieldOfView = CameraInfo->CameraFieldOfView;
 	AActor::SetActorTickEnabled(true);
+}
+
+void AFollowCamera::Deinitialize()
+{
+	AActor::SetActorTickEnabled(false);
+	FollowTarget = nullptr;
 }
 
 void AFollowCamera::Follow(float DeltaTime)
@@ -45,7 +55,7 @@ void AFollowCamera::Follow(float DeltaTime)
 	auto CharacterVelocity = FollowTarget->GetVelocity();
 	SetActorRotation(FollowTarget->GetInstigatorController()->GetControlRotation());
 	auto ChangeLengthDecay = CameraInfo->SpeedPassToChangeTargetArmLenght;
-	auto MovementSpeed = CameraInfo->SpeedPassToFollow;
+	auto MovementSpeed = CameraInfo->CameraLagSpeed;
 	
 	if(CharacterVelocity.Length() > 0.1f)
 	{
@@ -61,7 +71,11 @@ void AFollowCamera::Follow(float DeltaTime)
 	//FMath::ExponentialSmoothingApprox(CurrentLocation,TargetLocation, FollowPassing, SmoothingTime);
 
 	//Alternative two
-	CurrentLocation = ExpDecay(CurrentLocation, TargetLocation, MovementSpeed, DeltaTime);
+	//CurrentLocation = ExpDecay(CurrentLocation, TargetLocation, MovementSpeed, DeltaTime);
+
+	//alternative method three
+	CurrentLocation = TargetLocation;
+	
 	SetActorLocation(CurrentLocation);
 }
 

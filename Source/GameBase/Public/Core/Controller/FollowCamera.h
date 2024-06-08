@@ -40,6 +40,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Initialize();
 
+	UFUNCTION(BlueprintCallable)
+	void Deinitialize();
+
 private:
 	void Follow(float DeltaTime);
 
